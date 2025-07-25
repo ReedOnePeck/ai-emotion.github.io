@@ -115,8 +115,6 @@ body {
 }
 
 .results-carousel .item {
-  width: 60%;              /* 容器宽度与视频同步 */
-  height: auto;            /* 高度自适应（或固定值） */
   margin: 5px;
   overflow: hidden;
   border: 1px solid #bbb;
@@ -126,9 +124,6 @@ body {
 }
 
 .results-carousel video {
-  width: 100% !important;  /* 视频填满容器 */
-  height: auto !important; /* 高度自适应 */
-  object-fit: contain;     /* 保持比例（可选 cover/contain） */
   argin: 0;
 }
 
