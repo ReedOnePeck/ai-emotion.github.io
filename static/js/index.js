@@ -1,6 +1,6 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-// --- Your existing code for the interpolation animation ---
+// --- Interpolation animation code ---
 var INTERP_BASE = "./static/interpolation/stacked";
 var NUM_INTERP_FRAMES = 240;
 
@@ -19,111 +19,84 @@ function setInterpolationImage(i) {
   image.oncontextmenu = function() { return false; };
   $('#interpolation-image-wrapper').empty().append(image);
 }
-// --- End of existing code ---
-
+// --- End interpolation code ---
 
 $(document).ready(function() {
-    // Check for click events on the navbar burger icon
+    // Navbar burger toggle
     $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
     });
 
+    // --- FIXED VIDEO CAROUSEL WITH LAZY LOADING ---
+    const PRELOAD_AHEAD = 1; // Preload 1 video before and after current
+    
+    // Initialize carousel with correct options
+    var options = {
+      slidesToScroll: 1,
+      slidesToShow: 3,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+    };
 
-    // --- NEW VIDEO LAZY LOADING LOGIC ---
-
-    const PRELOAD_AHEAD = 2; // Preloads 2 videos before and 2 after the current one. (2+2+1 = 5 total)
-
-    /**
-     * Loads a window of videos around the current index and plays the current one.
-     * @param {object} carousel - The bulmaCarousel instance.
-     * @param {number} currentIndex - The index of the slide to be treated as current.
-     */
-    function updateAndPlayCurrentVideo(carousel, currentIndex) {
-        // Pause all videos in this carousel to ensure only one plays at a time
-        carousel.slides.forEach(slide => {
-            const video = slide.querySelector('video');
-            if (video && !video.paused) {
-                video.pause();
-            }
-        });
-
-        const numSlides = carousel.state.length;
-        
-        // Load a "window" of videos around the new current index for a smooth experience
-        for (let i = -PRELOAD_AHEAD; i <= PRELOAD_AHEAD; i++) {
-            // Calculate the correct index, handling wrapping for looping carousels
-            let indexToLoad = (currentIndex + i + numSlides) % numSlides;
-            
-            // Find all slides with this index (original and clones) and load their videos
-            carousel.slides.filter(s => parseInt(s.dataset.sliderIndex) === indexToLoad).forEach(slide => {
-              const video = slide.querySelector('video');
-              const source = video ? video.querySelector('source') : null;
-              
-              // If the video has a data-src and no src, it means it hasn't been loaded yet
-              if (video && source && source.dataset.src && !source.getAttribute('src')) {
-                  source.setAttribute('src', source.dataset.src);
-                  video.load(); // Tell the video element to load the new source
-              }
-            });
+    // Initialize carousels
+    var carousels = bulmaCarousel.attach('.carousel', options);
+    
+    // Function to handle video lazy loading
+    function updateVideosForCarousel(carousel, currentIndex) {
+      const numSlides = carousel.state.length;
+      
+      // Reset all videos
+      carousel.slides.forEach(slide => {
+        const video = slide.querySelector('video');
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
         }
+      });
+      
+      // Load videos in a window around current index
+      for (let i = -PRELOAD_AHEAD; i <= PRELOAD_AHEAD; i++) {
+        const indexToLoad = (currentIndex + i + numSlides) % numSlides;
+        const slide = carousel.slides[indexToLoad];
         
-        // Find the currently visible slide and play its video
-        const currentSlide = carousel.element.querySelector('.slider-item.is-current');
-        if (currentSlide) {
-            const videoToPlay = currentSlide.querySelector('video');
-            if (videoToPlay) {
-                // Ensure the video source is set before trying to play
-                const source = videoToPlay.querySelector('source');
-                if (source && source.getAttribute('src')) {
-                    const playPromise = videoToPlay.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            // Autoplay was prevented by the browser, which is common.
-                            // The 'controls' attribute will allow the user to play it manually.
-                            console.warn("Video autoplay was prevented:", error);
-                        });
-                    }
-                } else {
-                  // If not loaded yet, add a one-time event listener to play when ready
-                  videoToPlay.addEventListener('canplay', () => {
-                    const playPromise = videoToPlay.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => console.warn("Video autoplay was prevented:", error));
-                    }
-                  }, { once: true });
-                }
-            }
+        if (slide) {
+          const video = slide.querySelector('video');
+          const source = video.querySelector('source');
+          
+          // Lazy load if needed
+          if (source && source.dataset.src && !source.src) {
+            source.src = source.dataset.src;
+            video.load();
+          }
         }
+      }
+      
+      // Play current video
+      const currentSlide = carousel.slides[currentIndex];
+      if (currentSlide) {
+        const video = currentSlide.querySelector('video');
+        if (video) {
+          video.play().catch(e => console.log("Autoplay prevented:", e));
+        }
+      }
     }
 
-    var carouselOptions = {
-			slidesToScroll: 1,
-			slidesToShow: 3,
-			loop: true,
-			infinite: true,
-			autoplay: false, // Set to false because our script now handles playback
-    }
-
-		// Initialize all video carousels
-    var carousels = bulmaCarousel.attach('.results-carousel', carouselOptions);
-
-    // Loop on each carousel to set up lazy loading and events
+    // Setup each carousel
     carousels.forEach(carousel => {
-      // Initially load the videos for the starting slide
-      updateAndPlayCurrentVideo(carousel, carousel.state.index);
-
-      // Add a listener to load/play videos when the slide changes
+      // Initialize for first slide
+      updateVideosForCarousel(carousel, carousel.state.index);
+      
+      // Handle slide changes
       carousel.on('after:show', state => {
-        updateAndPlayCurrentVideo(carousel, state.next);
+        updateVideosForCarousel(carousel, state.index);
       });
     });
 
-    // --- END OF NEW LOGIC ---
+    // --- End video carousel code ---
 
-
-    // --- Your existing code for the interpolation animation ---
+    // --- Original interpolation code ---
     preloadInterpolationImages();
 
     $('#interpolation-slider').on('input', function(event) {
@@ -133,5 +106,4 @@ $(document).ready(function() {
     $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
-    // --- End of existing code ---
 });
