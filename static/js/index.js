@@ -19,74 +19,52 @@ function setInterpolationImage(i) {
   $('#interpolation-image-wrapper').empty().append(image);
 }
 
+
 $(document).ready(function() {
-    // Navbar burger toggle
+    // Check for click events on the navbar burger icon
     $(".navbar-burger").click(function() {
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
+
     });
 
-    // Carousel options (same as original)
     var options = {
-        slidesToScroll: 1,
-        slidesToShow: 3,
-        loop: true,
-        infinite: true,
-        autoplay: false,
-        autoplaySpeed: 3000,
-    };
-
-    // Initialize carousels (same as original)
-    var carousels = bulmaCarousel.attach('.carousel', options);
-
-    // Add lazy loading functionality to carousels
-    for(var i = 0; i < carousels.length; i++) {
-        // Get the carousel instance
-        var carousel = carousels[i];
-        
-        // Function to load videos near current slide
-        function loadNearbyVideos() {
-            var currentIndex = carousel.state.currentIndex;
-            var slides = carousel.slides;
-            var slidesToShow = carousel.options.slidesToShow;
-            
-            // Calculate range to load (current slide and adjacent ones)
-            var start = Math.max(0, currentIndex - 1);
-            var end = Math.min(slides.length, currentIndex + slidesToShow + 1);
-            
-            // Load videos in the calculated range
-            for (var j = start; j < end; j++) {
-                var slide = slides[j];
-                var video = slide.querySelector('video');
-                if (video) {
-                    var source = video.querySelector('source[data-src]');
-                    if (source && !source.src) {
-                        // Replace data-src with actual src
-                        source.src = source.dataset.src;
-                        // Remove data-src to prevent re-loading
-                        source.removeAttribute('data-src');
-                        // Load the video source
-                        video.load();
-                        
-                        // Set autoplay for the center video
-                        if (j === currentIndex + Math.floor(slidesToShow / 2)) {
-                            video.autoplay = true;
-                        }
-                    }
-                }
-            }
-        }
-        
-        // Load initial videos
-        loadNearbyVideos();
-        
-        // Listen for slide changes to load new videos
-        carousel.on('after:show', function(state) {
-            loadNearbyVideos();
-        });
+			slidesToScroll: 1,
+			slidesToShow: 5,
+			loop: true,
+			infinite: true,
+			autoplay: false,
+			autoplaySpeed: 3000,
     }
 
-    // Original interpolation code
+		// Initialize all div with carousel class
+    var carousels = bulmaCarousel.attach('.carousel', options);
+
+    // Loop on each carousel initialized
+    for(var i = 0; i < carousels.length; i++) {
+    	// Add listener to  event
+    	carousels[i].on('before:show', state => {
+    		console.log(state);
+    	});
+    }
+
+    // Access to bulmaCarousel instance of an element
+    var element = document.querySelector('#my-element');
+    if (element && element.bulmaCarousel) {
+    	// bulmaCarousel instance is available as element.bulmaCarousel
+    	element.bulmaCarousel.on('before-show', function(state) {
+    		console.log(state);
+    	});
+    }
+
+    /*var player = document.getElementById('interpolation-video');
+    player.addEventListener('loadedmetadata', function() {
+      $('#interpolation-slider').on('input', function(event) {
+        console.log(this.value, player.duration);
+        player.currentTime = player.duration / 100 * this.value;
+      })
+    }, false);*/
     preloadInterpolationImages();
 
     $('#interpolation-slider').on('input', function(event) {
@@ -96,4 +74,5 @@ $(document).ready(function() {
     $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
-});
+
+})
