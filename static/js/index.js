@@ -1,6 +1,5 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-// --- Interpolation animation code ---
 var INTERP_BASE = "./static/interpolation/stacked";
 var NUM_INTERP_FRAMES = 240;
 
@@ -19,7 +18,6 @@ function setInterpolationImage(i) {
   image.oncontextmenu = function() { return false; };
   $('#interpolation-image-wrapper').empty().append(image);
 }
-// --- End interpolation code ---
 
 $(document).ready(function() {
     // Navbar burger toggle
@@ -28,75 +26,67 @@ $(document).ready(function() {
       $(".navbar-menu").toggleClass("is-active");
     });
 
-    // --- FIXED VIDEO CAROUSEL WITH LAZY LOADING ---
-    const PRELOAD_AHEAD = 1; // Preload 1 video before and after current
-    
-    // Initialize carousel with correct options
+    // Carousel options (same as original)
     var options = {
-      slidesToScroll: 1,
-      slidesToShow: 3,
-      loop: true,
-      infinite: true,
-      autoplay: false,
+        slidesToScroll: 1,
+        slidesToShow: 3,
+        loop: true,
+        infinite: true,
+        autoplay: false,
+        autoplaySpeed: 3000,
     };
 
-    // Initialize carousels
+    // Initialize carousels (same as original)
     var carousels = bulmaCarousel.attach('.carousel', options);
-    
-    // Function to handle video lazy loading
-    function updateVideosForCarousel(carousel, currentIndex) {
-      const numSlides = carousel.state.length;
-      
-      // Reset all videos
-      carousel.slides.forEach(slide => {
-        const video = slide.querySelector('video');
-        if (video) {
-          video.pause();
-          video.currentTime = 0;
-        }
-      });
-      
-      // Load videos in a window around current index
-      for (let i = -PRELOAD_AHEAD; i <= PRELOAD_AHEAD; i++) {
-        const indexToLoad = (currentIndex + i + numSlides) % numSlides;
-        const slide = carousel.slides[indexToLoad];
+
+    // Add lazy loading functionality to carousels
+    for(var i = 0; i < carousels.length; i++) {
+        // Get the carousel instance
+        var carousel = carousels[i];
         
-        if (slide) {
-          const video = slide.querySelector('video');
-          const source = video.querySelector('source');
-          
-          // Lazy load if needed
-          if (source && source.dataset.src && !source.src) {
-            source.src = source.dataset.src;
-            video.load();
-          }
+        // Function to load videos near current slide
+        function loadNearbyVideos() {
+            var currentIndex = carousel.state.currentIndex;
+            var slides = carousel.slides;
+            var slidesToShow = carousel.options.slidesToShow;
+            
+            // Calculate range to load (current slide and adjacent ones)
+            var start = Math.max(0, currentIndex - 1);
+            var end = Math.min(slides.length, currentIndex + slidesToShow + 1);
+            
+            // Load videos in the calculated range
+            for (var j = start; j < end; j++) {
+                var slide = slides[j];
+                var video = slide.querySelector('video');
+                if (video) {
+                    var source = video.querySelector('source[data-src]');
+                    if (source && !source.src) {
+                        // Replace data-src with actual src
+                        source.src = source.dataset.src;
+                        // Remove data-src to prevent re-loading
+                        source.removeAttribute('data-src');
+                        // Load the video source
+                        video.load();
+                        
+                        // Set autoplay for the center video
+                        if (j === currentIndex + Math.floor(slidesToShow / 2)) {
+                            video.autoplay = true;
+                        }
+                    }
+                }
+            }
         }
-      }
-      
-      // Play current video
-      const currentSlide = carousel.slides[currentIndex];
-      if (currentSlide) {
-        const video = currentSlide.querySelector('video');
-        if (video) {
-          video.play().catch(e => console.log("Autoplay prevented:", e));
-        }
-      }
+        
+        // Load initial videos
+        loadNearbyVideos();
+        
+        // Listen for slide changes to load new videos
+        carousel.on('after:show', function(state) {
+            loadNearbyVideos();
+        });
     }
 
-    // Setup each carousel
-    carousels.forEach(carousel => {
-      // Initialize for first slide
-      updateVideosForCarousel(carousel, carousel.state.index);
-      
-      // Handle slide changes
-      carousel.on('after:show', state => {
-        updateVideosForCarousel(carousel, state.index);
-      });
-    });
-
-    // --- End video carousel code ---
-
-    // --- Original interpolation code ---
+    // Original interpolation code
     preloadInterpolationImages();
 
     $('#interpolation-slider').on('input', function(event) {
