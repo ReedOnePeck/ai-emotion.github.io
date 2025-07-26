@@ -1,5 +1,6 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
+// --- Your existing code for the interpolation animation ---
 var INTERP_BASE = "./static/interpolation/stacked";
 var NUM_INTERP_FRAMES = 240;
 
@@ -18,6 +19,7 @@ function setInterpolationImage(i) {
   image.oncontextmenu = function() { return false; };
   $('#interpolation-image-wrapper').empty().append(image);
 }
+// --- End of existing code ---
 
 
 $(document).ready(function() {
@@ -26,45 +28,102 @@ $(document).ready(function() {
       // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
-
     });
 
-    var options = {
+
+    // --- NEW VIDEO LAZY LOADING LOGIC ---
+
+    const PRELOAD_AHEAD = 2; // Preloads 2 videos before and 2 after the current one. (2+2+1 = 5 total)
+
+    /**
+     * Loads a window of videos around the current index and plays the current one.
+     * @param {object} carousel - The bulmaCarousel instance.
+     * @param {number} currentIndex - The index of the slide to be treated as current.
+     */
+    function updateAndPlayCurrentVideo(carousel, currentIndex) {
+        // Pause all videos in this carousel to ensure only one plays at a time
+        carousel.slides.forEach(slide => {
+            const video = slide.querySelector('video');
+            if (video && !video.paused) {
+                video.pause();
+            }
+        });
+
+        const numSlides = carousel.state.length;
+        
+        // Load a "window" of videos around the new current index for a smooth experience
+        for (let i = -PRELOAD_AHEAD; i <= PRELOAD_AHEAD; i++) {
+            // Calculate the correct index, handling wrapping for looping carousels
+            let indexToLoad = (currentIndex + i + numSlides) % numSlides;
+            
+            // Find all slides with this index (original and clones) and load their videos
+            carousel.slides.filter(s => parseInt(s.dataset.sliderIndex) === indexToLoad).forEach(slide => {
+              const video = slide.querySelector('video');
+              const source = video ? video.querySelector('source') : null;
+              
+              // If the video has a data-src and no src, it means it hasn't been loaded yet
+              if (video && source && source.dataset.src && !source.getAttribute('src')) {
+                  source.setAttribute('src', source.dataset.src);
+                  video.load(); // Tell the video element to load the new source
+              }
+            });
+        }
+        
+        // Find the currently visible slide and play its video
+        const currentSlide = carousel.element.querySelector('.slider-item.is-current');
+        if (currentSlide) {
+            const videoToPlay = currentSlide.querySelector('video');
+            if (videoToPlay) {
+                // Ensure the video source is set before trying to play
+                const source = videoToPlay.querySelector('source');
+                if (source && source.getAttribute('src')) {
+                    const playPromise = videoToPlay.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            // Autoplay was prevented by the browser, which is common.
+                            // The 'controls' attribute will allow the user to play it manually.
+                            console.warn("Video autoplay was prevented:", error);
+                        });
+                    }
+                } else {
+                  // If not loaded yet, add a one-time event listener to play when ready
+                  videoToPlay.addEventListener('canplay', () => {
+                    const playPromise = videoToPlay.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => console.warn("Video autoplay was prevented:", error));
+                    }
+                  }, { once: true });
+                }
+            }
+        }
+    }
+
+    var carouselOptions = {
 			slidesToScroll: 1,
 			slidesToShow: 3,
 			loop: true,
 			infinite: true,
-			autoplay: false,
-			autoplaySpeed: 3000,
+			autoplay: false, // Set to false because our script now handles playback
     }
 
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+		// Initialize all video carousels
+    var carousels = bulmaCarousel.attach('.results-carousel', carouselOptions);
 
-    // Loop on each carousel initialized
-    for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
-    	carousels[i].on('before:show', state => {
-    		console.log(state);
-    	});
-    }
+    // Loop on each carousel to set up lazy loading and events
+    carousels.forEach(carousel => {
+      // Initially load the videos for the starting slide
+      updateAndPlayCurrentVideo(carousel, carousel.state.index);
 
-    // Access to bulmaCarousel instance of an element
-    var element = document.querySelector('#my-element');
-    if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before-show', function(state) {
-    		console.log(state);
-    	});
-    }
+      // Add a listener to load/play videos when the slide changes
+      carousel.on('after:show', state => {
+        updateAndPlayCurrentVideo(carousel, state.next);
+      });
+    });
 
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
+    // --- END OF NEW LOGIC ---
+
+
+    // --- Your existing code for the interpolation animation ---
     preloadInterpolationImages();
 
     $('#interpolation-slider').on('input', function(event) {
@@ -74,5 +133,5 @@ $(document).ready(function() {
     $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
-
-})
+    // --- End of existing code ---
+});
