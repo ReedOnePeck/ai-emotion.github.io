@@ -897,6 +897,143 @@
 </section>
 
 
+
+
+
+
+
+
+  
+
+<!-- 图片展示区域 - 标题在图像上方 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Overview of our work</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig1.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>Schematic diagrams of the experiment and analysis methods.</h3>
+        <p></b>a</b>, Emotionally evocative video stimuli database. Standardized annotations include: human-rated emotional discrete categories and affective dimensions, detailed video descriptions, and synchronized fMRI recordings during stimulus viewing. 
+        </b>b-d</b>, Pipelines of affective embedding learning under the triplet odd-one-out paradigm for human, LLM, and MLLM, respectively. Odd-one-out judgments were collected for approximately 7.1 million triplets, and modeled using the SPoSE approach to 
+        derive the corresponding latent embeddings. For humans, the judgments were computed based on the cosine similarity between pairwise ratings of categories or dimensions. </b>e</b>, Examples of
+		prompts and responses for LLM and MLLM. </b>f</b>, Illustration of the SPoSE modeling approach. </b>g</b>, Illustration of the comparison between different representational spaces. </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
