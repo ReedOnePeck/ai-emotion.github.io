@@ -906,13 +906,13 @@
 
   
 
-<!-- 图片展示区域 - 标题在图像上方 -->
+<!-- 图1 -->
 <section class="image-showcase">
   <div class="image-container">
     <div class="image-content">
       <!-- 1. 作为section标题显示在图像上方 -->
       <h2 class="section-title">
-        <span class="highlight">Overview of our work</span> 
+        <span class="highlight">Overview of our work.</span> 
       </h2>
       
       <!-- 2. 大尺寸图片容器 -->
@@ -934,12 +934,193 @@
 
 
 	
+<!-- 图2 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Latent affective representations exhibit stability and predictability in models.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig2.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>Validation of the latent embeddings learned from similarity judgments over millions of trials.</h3>
+        <p><b>a</b>, Dimensionality effects on prediction accuracy for measured similarity matrices. <b>b-e</b>, Reproducibility analysis of the 30 recovered dimensions. 
+		Each data point indicates the maximum correlation between individual sorted dimensions and all dimensions from independent runs, with shaded regions representing 95% confidence 
+		intervals (CI) derived from 10 randomized repetitions. <b>f}, Odd-one-out prediction accuracy on models' held-out test sets. Performance metrics display 95% CIs, 
+		while noise ceilings - calculated from supplemental behavioral data for each model - indicate mean inter-trial reliability across 10,000 triplets. <b>g-j</b>, RSMs for 66 video 
+		stimuli derived through the recovered embeddings and the behavioral validation. Left panel displays embedding-based similarity estimates, while middle panel shows full triplet sampling 
+		results from behavioral experiments (similarity operationalized as co-selection frequency across trials). Right panel presents correlation coefficients between predicted and measured 
+		pairwise similarities.
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+
   
 
+<!-- 图3 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Emergent categorical, smooth and blended affective representations in models are interpretable.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig3.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>Visualization of the recovered affective embeddings.</h3>
+        <p><b>a</b>, t-SNE visualization of 2,180 video stimuli, showing emergent category clusters (e.g., craving and fear) and affective dimensions (e.g., valence and arousal).
+		<b>b</b>, Top-3 classification accuracy of different embeddings evaluated on 27 emotion categories. <b>c-e</b>, Each dimension's visualization consists of video 
+		frames from the 6 highest-weighted stimuli, accompanied by a word cloud, where term size reflects the PCC between that dimension and the human categorical/dimensional ratings. 
+		<b>f</b>, Dimension proportions of easy and hard to interpret. <b>g</b>, Dimension proportions of categorical, dimensional, and mixed dimensions.
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 图6 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Comparative analysis of affective representations in models and humans.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig6.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>Analysis of affective space dimensions and clusters.</h3>
+        <p><b>a-d</b>, Affective graphs (left) and clusters (right). In the affective graphs, nodes represent dimensions of the affective space, 
+		with edge widths scaled according to PCC (threshold = 0.2). Isolated nodes are omitted. For emotion clusters, the Louvain algorithm was applied, 
+		and nodes belonging to the same cluster are color-coded identically (see legend, top right). Isolated nodes are excluded. Node sizes represent relative PageRank scores. 
+		<b>e</b>, Visualization of shared and non-shared clusters between different models.  <b>f</b>, To achieve 95%--99% behavioral predictability, the required number 
+		of dimensions is shown. Red dashed lines indicate chance-level odd-one-out accuracy, gray bands mark the target predictability range (95%--99%), 
+		and colored bars represent dimensional contributions within this range.
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
 
+<!-- 图7 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Which factors govern human-like affective alignment in models?</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig7.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>A comparative analysis of behavioral alignment between 22 AI models and human responses on an emotional odd-one-out task.</h3>
+        <p>The models span diverse architectures (e.g., DNNs, LLaMA series, Qwen series, DeepSeek series, and ChatGPT series), parameter scales (ranging from 25M to 671B), 
+		and training data conditions (e.g., fine-tuned on empathy datasets). Bar plots represent Pearson’s r between human-measured and model-measured RSMs. 
+		Slash-shaded bars indicate similarity computed against human category ratings, while solid bars denote similarity with human dimension ratings. Error bars reflect 95% CIs.
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 图8 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Do models exhibit a representational preference for categorical versus dimensional emotion coding?</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig8.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>The relationship between the 30-dimensional affective  space learned through the odd-one-out paradigm and the self-report-annotated affective space for Human category (<b>a</b>), Human dimension (<b>b</b>), LLM (<b>c</b>), and MLLM (<b>d</b>).</h3>
+        <p>The heatmap's horizontal axis represents each dimension of the self-report-annotated space by <a href="https://www.pnas.org/doi/10.1073/pnas.1702247114" target="_blank" rel="noopener noreferrer" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;">
+      Cowen et al.</a>  (labeled in the figure: the left 34 ticks denote emotion categories, while the right 14 ticks indicate affective dimensions). The vertical axis corresponds to each dimension of the affective representation space learned through the odd-one-out paradigm. 
+	Each value in the heatmap reflects the PCC between two dimensions. The colorbar range is determined by the maximum absolute PCC values.  
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+	
+
+
+<!-- 图9 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Linking learned affective representations to brain response.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig9.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>Relationship between the learned affective representation and brain representational geometries.</h3>
+        <p><b>a-b</b>, Subcortical and cortical RSA between model RSM and brain ROI RSM (see Methods). The dots on each bar represent the scores of 5 individual subjects. Below subfig. 
+		<b>a</b> shows the locations of the subcortical brain regions. <b>c</b>, Flattened cortical maps of searchlight RSA for MLLM, LLM, Human category and Human dimension. 
+		<b>d-e</b>, 2-D histograms of MLLM performance against human category, dimension and combined (concat) performance across all voxels via Searchlight RSA and Voxel-wise Encoding in the whole brain.
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+	
 
 
 
