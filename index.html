@@ -1261,7 +1261,131 @@
 </style>
 
 
+<!-- 视频展示区域 -->
+<section class="video-showcase">
+  <div class="video-container">
+    <div class="video-content">
+      <!-- 1. 作为section标题显示在视频上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Illustration of example video stimuli with their dominant dimensions.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸视频容器 -->
+      <div class="video-wrapper">
+        <video controls autoplay muted loop playsinline>
+          <source src="./static/images/Rose_figure.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="video-caption">
+        <h3>Interpretation of the dimensions in the learned affective embeddings</h3>
+        <p>Illustration of example video stimuli with their dominant dimensions. 
+	Each petal's length corresponds to the expression magnitude of a particular dimension, with unlabeled dimensions reflecting negligible weight contributions for visualization clarity.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<style>
+  /* 视频展示区域专用样式 */
+  .video-showcase {
+    margin: 60px 0;
+  }
+  
+  .video-showcase .video-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .video-showcase .video-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在视频上方 */
+  .video-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0;
+    padding: 0 0 20px 0;
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .video-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .video-showcase .video-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .video-showcase .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+  }
+  
+  .video-showcase .video-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .video-showcase .video-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .video-showcase .video-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .video-showcase .video-content {
+      padding: 20px;
+    }
+    
+    .video-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .video-showcase .video-caption {
+      padding: 15px;
+    }
+    
+    .video-showcase .video-wrapper video {
+      height: auto;
+    }
+  }
+</style>
+
+
+
+
+	
 
 	
 
