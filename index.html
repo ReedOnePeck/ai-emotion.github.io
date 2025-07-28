@@ -1505,6 +1505,130 @@
 </style>
 
 
+<!-- 视频3 -->
+<section class="video-showcase">
+  <div class="video-container">
+    <div class="video-content">
+      <!-- 1. 作为section标题显示在视频上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Verifying Causal Interpretability of Affective Embeddings through Dimensional Manipulation.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸视频容器 -->
+      <div class="video-wrapper">
+        <video controls autoplay muted loop playsinline>
+          <source src="./static/images/Emotion_Edit.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="video-caption">
+        <h3>Modifying the affective content of videos through dimensional manipulation of affective embeddings.</h3>
+        <p><b>a</b>, Our manipulation of specific emotional experiences was achieved by reducing the activation values along targeted dimensions in
+		the affective embeddings (SPoSE embeddings). The first row displays frames from the original video. In the second row, red bounding boxes highlight the target 
+		dimension to be manipulated, with its corresponding label and original activation value (normalized to [0,1]) annotated above. The third row presents the activation 
+		heatmap for this dimension. The fourth row shows video frames after decreasing the original activation value to 0.2, demonstrating that precisely the regions highlighted 
+		in the heatmap were modified.  <b>b</b>, The corresponding emotional experience can be elicited in videos by augmenting specific dimension values in the affective embeddings. 
+		The subfigure displays the edited video frames obtained by increasing the value of a specific dimension in the affective embedding to 0.8.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 视频展示区域专用样式 */
+  .video-showcase {
+    margin: 60px 0;
+  }
+  
+  .video-showcase .video-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .video-showcase .video-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在视频上方 */
+  .video-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0;
+    padding: 0 0 20px 0;
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .video-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .video-showcase .video-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .video-showcase .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+  }
+  
+  .video-showcase .video-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .video-showcase .video-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .video-showcase .video-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .video-showcase .video-content {
+      padding: 20px;
+    }
+    
+    .video-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .video-showcase .video-caption {
+      padding: 15px;
+    }
+    
+    .video-showcase .video-wrapper video {
+      height: auto;
+    }
+  }
+</style>
 
 	
 
