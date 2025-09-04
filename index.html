@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Probing large language models with large-scale behavioral experiments reveals a human-like and brain-aligned affective representational geometry.">
+        content="Bridging the behavior-neural gap: A multimodal AI reveals the brain's geometry of emotion more accurately than human self-reports">
   <meta name="keywords" content="LLM, Affective Representation, Human-like, brain-aligned">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Emotion</title>
@@ -36,7 +36,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Probing large language models with large-scale behavioral experiments reveals a human-like and brain-aligned affective representational geometry</h1>
+          <h1 class="title is-1 publication-title">Bridging the behavior-neural gap: A multimodal AI reveals the brain's geometry of emotion more accurately than human self-reports</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://changdedu.github.io/">Changde Du</a><sup>1,3,†</sup>,</span>
@@ -86,7 +86,7 @@
 
       <!-- 居中标题（使用Bulma内置类） -->
       <div class="has-text-centered mb-6">
-        <h2 class="title is-3">Visualization of MLLM's affective representation, with the top 9 video stimuli exhibiting the highest activation in each dimension.</h2>
+        <h2 class="title is-3">Visualization of MLLM's 30-dimensional affective embeddings, with the top 9 video stimuli exhibiting the highest activation in each dimension.</h2>
       </div>
       
       
@@ -285,7 +285,7 @@
 
       <!-- 居中标题（使用Bulma内置类） -->
       <div class="has-text-centered mb-6">
-        <h2 class="title is-3">Visualization of LLM's affective representation.</h2>
+        <h2 class="title is-3">Visualization of LLM's 30-dimensional affective embeddings.</h2>
       </div>
       
       
@@ -483,7 +483,7 @@
 
       <!-- 居中标题（使用Bulma内置类） -->
       <div class="has-text-centered mb-6">
-        <h2 class="title is-3">Visualization of Human (category)'s affective representation.</h2>
+        <h2 class="title is-3">Visualization of Human (category)'s 30-dimensional affective embeddings.</h2>
       </div>
       
       
@@ -683,7 +683,7 @@
 
       <!-- 居中标题（使用Bulma内置类） -->
       <div class="has-text-centered mb-6">
-        <h2 class="title is-3">Visualization of Human (dimension)'s affective representation.</h2>
+        <h2 class="title is-3">Visualization of Human (dimension)'s 30-dimensional affective embeddings.</h2>
       </div>
       
       
@@ -887,14 +887,15 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            The capacity to represent emotion is a cornerstone of human intelligence. While recent Large Language Models (LLMs) and Multimodal LLMs (MLLMs) show remarkable cognitive abilities, 
-            it is unknown whether they can develop genuine, human-like affective representations. Here, we investigate this by comparing the emergent affective representations of LLMs/MLLMs to human 
-            behavioral ratings and neural activity in response to 2,180 emotionally evocative short videos. Using millions of triplet odd-one-out judgments, we derived 30-dimensional embeddings from both 
-            an MLLM and a language-only model (LLM). We found that these embeddings are highly interpretable, often blended, and organizing emotion primarily along categorical lines. Most remarkably, 
-            the MLLM's representation predicted neural activity with the highest accuracy, outperforming both the LLM and, counterintuitively, representations derived from human behavioral ratings. 
-            This superior neural alignment was particularly evident in both subcortical (e.g., amygdala, hippocampus, putamen, etc.) and cortical (temporal pole, OFC, PC, TPJ, etc.) emotion-processing regions. 
-            These findings suggest that similarity judgment based machine-behavioral paradigms can more faithfully capture the brain's affective representational geometry than traditional rating scales, 
-            and provide compelling evidence that MLLMs can autonomously develop rich, brain-aligned conceptual frameworks for emotion, offering a powerful new tool to explore the underpinnings of affective cognition.
+            The ability to represent emotion plays a significant role in human cognition and social interaction, yet the high-dimensional geometry of this affective space and its neural underpinnings remain debated. 
+			  A key challenge, the ‘behavior-neural gap,’ is the limited ability of human self-reports to predict brain activity. Here we test the hypothesis that this gap arises from the constraints of traditional 
+			  rating scales and that large-scale similarity judgments can more faithfully capture the brain's affective geometry. Using AI models as ‘cognitive agents,’ we collected millions of triplet odd-one-out 
+			  judgments from a multimodal large language model (MLLM) and a language-only model (LLM) in response to 2,180 emotionally evocative videos. We found that the emergent 30-dimensional embeddings from these 
+			  models are highly interpretable and organize emotion primarily along categorical lines, yet in a blended fashion that incorporates dimensional properties. Most remarkably, the MLLM's representation 
+			  predicted neural activity in human emotion-processing networks with the highest accuracy, outperforming not only the LLM but also, counterintuitively, representations derived directly from human 
+			  behavioral ratings. This result supports our primary hypothesis and suggests that sensory grounding—learning from rich visual data—is critical for developing a truly neurally-aligned conceptual framework 
+			  for emotion. Our findings provide compelling evidence that MLLMs can autonomously develop rich, neurally-aligned affective representations, offering a powerful paradigm to bridge the gap between subjective 
+			  experience and its neural substrates.
           </p>
         </div>
       </div>
@@ -928,11 +929,10 @@
       
       <!-- 3. 等宽描述区域 -->
       <div class="image-caption">
-        <h3>Schematic diagrams of the experiment and analysis methods.</h3>
-        <p><b>a</b>, Emotionally evocative video stimuli database. Standardized annotations include: human-rated emotional discrete categories and affective dimensions, detailed video descriptions, and synchronized fMRI recordings during stimulus viewing. 
-        <b>b-d</b>, Pipelines of affective embedding learning under the triplet odd-one-out paradigm for human, LLM, and MLLM, respectively. Odd-one-out judgments were collected for approximately 7.1 million triplets, and modeled using the SPoSE approach to 
-        derive the corresponding latent embeddings. For humans, the judgments were computed based on the cosine similarity between pairwise ratings of categories or dimensions. <b>e</b>, Examples of
-		prompts and responses for LLM and MLLM. <b>f</b>, Illustration of the SPoSE modeling approach. <b>g</b>, Illustration of the comparison between different representational spaces. </p>
+        <h3>Overview of the experimental and analytical pipeline.</h3>
+        <p><b>a</b>, The study utilized a database of 2,180 emotionally evocative videos with rich, pre-existing annotations, including human ratings on discrete emotion categories and continuous affective dimensions, detailed textual descriptions, and corresponding fMRI data from viewers. 
+        <b>b-d</b>, Affective embeddings were derived for four systems—human categorical ratings, human dimensional ratings, LLM, and MLLM—using a triplet odd-one-out behavioral paradigm. Human similarity judgments were simulated based on the cosine similarity of their prior ratings, while models performed the task directly. 
+			<b>e</b>, Example prompts and responses for the LLM and MLLM. <b>f-g</b>, Latent embeddings were learned from over 7.1 million triplet judgments using SPoSE (<b>f</b>,), and the resulting representational spaces were compared to each other and to neural data (<b>g</b>,).</p>
       </div>
     </div>
   </div>
