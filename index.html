@@ -869,6 +869,364 @@
   }
 </style>
 
+
+
+<!-- 图4 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Human-like affective structure emerges in model-derived embeddings.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/result3.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+  <h3>Examples of affective components.</h3>
+  <p>Top-weighted video frames and word clouds (label size proportional to correlation with human ratings) for representative components.
+  <b>a</b>, Components primarily encoding discrete emotion categories.
+  <b>b</b>, Components primarily encoding affective dimensions (LLM specific).
+  <b>c</b>, Components exhibiting a hybrid coding scheme, bridging categories and dimensions. Left panels: LLM; Right panels: MLLM.</p>
+</div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+<!-- 图5 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Affective structure and behavioral alignment across models and humans.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/result4.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+  <h3>Convergent and divergent high-level affective structures.</h3>
+  <p><b>a-d</b>, Affective graphs (left) and community structure (right) for each of the four spaces. In the graphs, nodes are affective components, and edge width is proportional to the Pearson correlation between them (r > 0.2). In the community plots, components are grouped into clusters using the Louvain algorithm, with node size reflecting PageRank centrality. Isolated nodes are excluded.
+  <b>e</b>, The overlap of affective clusters across all four spaces, highlighting both shared and unique high-level structures.
+  <b>f</b>, Human–model behavioral consistency across architectures. Scores are noise-normalized relative to the human noise ceiling. Error bars represent 95% CIs (n=1,000 bootstrap iterations).</p>
+</div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+<!-- 图6 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Neural alignment of model-derived affective representations.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/result5.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+  <h3>Neural alignment of model-derived and human-rated affective representations.</h3>
+  <p><b>a, b</b>, Results of searchlight RSA between different affective representations and human brain activity, averaged in subcortical (<b>a</b>) and cortical (<b>b</b>) ROIs (averaged across subjects (n=5)). Dots represent individual subjects; error bars reflect standard deviation (s.d.) across subjects; asterisks indicate significant differences between MLLM and competing models (*, P < 0.05; **, P < 0.01; ***, P < 0.001; n.s., not significant); all statistics are paired t-tests (two-tailed), with FDR correction for multiple comparisons across ROIs.
+  <b>c</b>, Whole-cortex maps of searchlight RSA for a representative subject. All coloured voxels are predicted significantly (P < 0.05, FDR corrected, two-tailed t-tests).
+  <b>d</b>, Voxel-wise comparison of model performance using searchlight RSA.</p>
+</div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+	
+
 	
 
   
