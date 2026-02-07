@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Convergent affective representational geometry in multimodal large language models and the human brain">
+  <meta name="keywords" content="LLM, Affective Representation, Human-like, brain-aligned">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Emotion</title>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/BCI.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Convergent affective representational geometry in multimodal large language models and the human brain</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://changdedu.github.io/">Changde Du</a><sup>1,3,†</sup>,</span>
+            <span class="author-block">
+              <a href="https://reedonepeck.github.io/Luyizhuo.github.io/">Yizhuo Lu</a><sup>1,2,†</sup>,</span>
+            <span class="author-block">
+              Zhongyu Huang<sup>1,3,†</sup>,
+            </span>
+            <span class="author-block">
+              Yi Sun<sup>1,3</sup>,
+            </span>
+	    <span class="author-block">
+              Zisen Zhou<sup>4</sup>,
+            </span>
+	    <span class="author-block">
+              <a href="https://imibr.bnu.edu.cn/English/Faculty/PIen/faa01d662a7f438f8614f3e14e6d27e9.htm">Shaozheng Qin</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://people.ucas.ac.cn/~hehuiguang">Huiguang He</a><sup>1,2,3,*</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <!-- 单位列表（分行显示） -->
+            <div class="author-block"><sup>1</sup>State Key Laboratory of Brain Cognition and Brain-inspired Intelligence Technology, Institute of Automation, Chinese Academy of Sciences, Beijing, 100190, China.</div>
+            <div class="author-block"><sup>2</sup>School of Future Technology, University of Chinese Academy of Sciences, Beijing, 100049, China.</div>
+            <div class="author-block"><sup>3</sup>School of Artificial Intelligence, University of Chinese Academy of Sciences, Beijing, 100049, China</div>
+	    <div class="author-block"><sup>4</sup>State Key Laboratory of Cognitive Neuroscience and Learning, Beijing Normal University, Beijing, China</div>
+            
+            <!-- 通讯作者和同等贡献说明 -->
+            <div class="author-block" style="margin-top: 0.5rem;">
+              <sup>†</sup>These authors contributed equally<br>
+              <sup>*</sup>corresponding author: Huiguang He (huiguang.he@ia.ac.cn)
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+	
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The ability to represent emotion plays a significant role in human cognition and social interaction, yet the high-dimensional geometry of this affective space and its neural underpinnings remain debated. 
+			  A key challenge, the ‘behavior-neural gap,’ is the limited ability of human self-reports to predict brain activity. Here we test the hypothesis that this gap arises from the constraints of traditional 
+			  rating scales and that large-scale similarity judgments can more faithfully capture the brain's affective geometry. Using AI models as ‘cognitive agents,’ we collected millions of triplet odd-one-out 
+			  judgments from a multimodal large language model (MLLM) and a language-only model (LLM) in response to 2,180 emotionally evocative videos. We found that the emergent 30-dimensional embeddings from these 
+			  models are highly interpretable and organize emotion primarily along categorical lines, yet in a blended fashion that incorporates dimensional properties. Most remarkably, the MLLM's representation 
+			  predicted neural activity in human emotion-processing networks with the highest accuracy, outperforming not only the LLM but also, counterintuitively, representations derived directly from human 
+			  behavioral ratings. This result supports our primary hypothesis and suggests that sensory grounding—learning from rich visual data—is critical for developing a truly neurally-aligned conceptual framework 
+			  for emotion. Our findings provide compelling evidence that MLLMs can autonomously develop rich, neurally-aligned affective representations, offering a powerful paradigm to bridge the gap between subjective 
+			  experience and its neural substrates.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+
+
+	
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <!-- 居中标题（使用Bulma内置类） -->
+      <div class="has-text-centered mb-6">
+        <h2 class="title is-3">Visualization of MLLM's 30-dimensional affective embeddings, with the top 9 video stimuli exhibiting the highest activation in each dimension.</h2>
+      </div>
+      
+      
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-dim_1">
+          <video poster="" id="dim_1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_2">
+          <video poster="" id="dim_2" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_3">
+          <video poster="" id="dim_3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_4">
+          <video poster="" id="dim_4" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_5">
+          <video poster="" id="dim_5" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_6">
+          <video poster="" id="dim_6" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_7">
+          <video poster="" id="dim_7" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_7.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_8">
+          <video poster="" id="dim_8" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_8.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_9">
+          <video poster="" id="dim_9" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_9.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_10">
+          <video poster="" id="dim_10" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/blurred_dim10_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_11">
+          <video poster="" id="dim_11" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_11.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_12">
+          <video poster="" id="dim_12" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/blurred_dim12_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_13">
+          <video poster="" id="dim_13" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_13.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_14">
+          <video poster="" id="dim_14" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_14.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_15">
+          <video poster="" id="dim_15" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_15.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_16">
+          <video poster="" id="dim_16" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_16.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_17">
+          <video poster="" id="dim_17" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_17.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_18">
+          <video poster="" id="dim_18" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_18.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_19">
+          <video poster="" id="dim_19" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_19.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_20">
+          <video poster="" id="dim_20" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_20.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_21">
+          <video poster="" id="dim_21" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_21.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_22">
+          <video poster="" id="dim_22" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_22.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_23">
+          <video poster="" id="dim_23" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_23.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_24">
+          <video poster="" id="dim_24" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_24.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_25">
+          <video poster="" id="dim_25" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_25.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_26">
+          <video poster="" id="dim_26" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_26.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_27">
+          <video poster="" id="dim_27" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_27.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_28">
+          <video poster="" id="dim_28" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_28.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_29">
+          <video poster="" id="dim_29" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_29.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-dim_30">
+          <video poster="" id="dim_30" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MLLM/dim_30.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <!-- 居中标题（使用Bulma内置类） -->
+      <div class="has-text-centered mb-6">
+        <h2 class="title is-3">Visualization of LLM's 30-dimensional affective embeddings.</h2>
+      </div>
+      
+      
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-llm-dim_1">
+          <video poster="" id="llm-dim_1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_2">
+          <video poster="" id="llm-dim_2" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_3">
+          <video poster="" id="llm-dim_3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_4">
+          <video poster="" id="llm-dim_4" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_5">
+          <video poster="" id="llm-dim_5" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_6">
+          <video poster="" id="llm-dim_6" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_7">
+          <video poster="" id="llm-dim_7" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_7.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_8">
+          <video poster="" id="llm-dim_8" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_8.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_9">
+          <video poster="" id="llm-dim_9" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_9.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_10">
+          <video poster="" id="llm-dim_10" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_10.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_11">
+          <video poster="" id="llm-dim_11" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_11.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_12">
+          <video poster="" id="llm-dim_12" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_12.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_13">
+          <video poster="" id="llm-dim_13" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_13.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_14">
+          <video poster="" id="llm-dim_14" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_14.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_15">
+          <video poster="" id="llm-dim_15" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_15.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_16">
+          <video poster="" id="llm-dim_16" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_16.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_17">
+          <video poster="" id="llm-dim_17" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_17.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_18">
+          <video poster="" id="llm-dim_18" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_18.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_19">
+          <video poster="" id="llm-dim_19" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_19.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_20">
+          <video poster="" id="llm-dim_20" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_20.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_21">
+          <video poster="" id="llm-dim_21" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_21.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_22">
+          <video poster="" id="llm-dim_22" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_22.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_23">
+          <video poster="" id="llm-dim_23" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/blurred_dim23_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_24">
+          <video poster="" id="llm-dim_24" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_24.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_25">
+          <video poster="" id="llm-dim_25" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_25.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_26">
+          <video poster="" id="llm-dim_26" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_26.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_27">
+          <video poster="" id="llm-dim_27" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_27.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_28">
+          <video poster="" id="llm-dim_28" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_28.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_29">
+          <video poster="" id="llm-dim_29" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_29.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-llm-dim_30">
+          <video poster="" id="llm-dim_30" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/LLM/dim_30.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <!-- 居中标题（使用Bulma内置类） -->
+      <div class="has-text-centered mb-6">
+        <h2 class="title is-3">Visualization of Human (category)'s 30-dimensional affective embeddings.</h2>
+      </div>
+      
+      
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-human-cat-dim_1">
+          <video poster="" id="human-cat-dim_1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_2">
+          <video poster="" id="human-cat-dim_2" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_3">
+          <video poster="" id="human-cat-dim_3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_4">
+          <video poster="" id="human-cat-dim_4" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_5">
+          <video poster="" id="human-cat-dim_5" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_6">
+          <video poster="" id="human-cat-dim_6" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_7">
+          <video poster="" id="human-cat-dim_7" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_7.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_8">
+          <video poster="" id="human-cat-dim_8" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_8.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_9">
+          <video poster="" id="human-cat-dim_9" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/blurred_dim9_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_10">
+          <video poster="" id="human-cat-dim_10" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_10.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_11">
+          <video poster="" id="human-cat-dim_11" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_11.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_12">
+          <video poster="" id="human-cat-dim_12" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_12.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_13">
+          <video poster="" id="human-cat-dim_13" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_13.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_14">
+          <video poster="" id="human-cat-dim_14" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/blurred_dim14_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_15">
+          <video poster="" id="human-cat-dim_15" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_15.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_16">
+          <video poster="" id="human-cat-dim_16" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_16.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_17">
+          <video poster="" id="human-cat-dim_17" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/blurred_dim17_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_18">
+          <video poster="" id="human-cat-dim_18" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_18.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_19">
+          <video poster="" id="human-cat-dim_19" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_19.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_20">
+          <video poster="" id="human-cat-dim_20" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_20.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_21">
+          <video poster="" id="human-cat-dim_21" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_21.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_22">
+          <video poster="" id="human-cat-dim_22" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_22.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_23">
+          <video poster="" id="human-cat-dim_23" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_23.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_24">
+          <video poster="" id="human-cat-dim_24" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_24.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_25">
+          <video poster="" id="human-cat-dim_25" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_25.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_26">
+          <video poster="" id="human-cat-dim_26" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_26.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_27">
+          <video poster="" id="human-cat-dim_27" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_27.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_28">
+          <video poster="" id="human-cat-dim_28" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_28.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_29">
+          <video poster="" id="human-cat-dim_29" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_29.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-cat-dim_30">
+          <video poster="" id="human-cat-dim_30" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_cat/dim_30.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <!-- 居中标题（使用Bulma内置类） -->
+      <div class="has-text-centered mb-6">
+        <h2 class="title is-3">Visualization of Human (dimension)'s 30-dimensional affective embeddings.</h2>
+      </div>
+      
+      
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-human-dim-dim_1">
+          <video poster="" id="human-dim-dim_1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_2">
+          <video poster="" id="human-dim-dim_2" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_3">
+          <video poster="" id="human-dim-dim_3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim3_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_4">
+          <video poster="" id="human-dim-dim_4" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_5">
+          <video poster="" id="human-dim-dim_5" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_6">
+          <video poster="" id="human-dim-dim_6" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_7">
+          <video poster="" id="human-dim-dim_7" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim7_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_8">
+          <video poster="" id="human-dim-dim_8" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_8.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_9">
+          <video poster="" id="human-dim-dim_9" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim9_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_10">
+          <video poster="" id="human-dim-dim_10" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_10.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_11">
+          <video poster="" id="human-dim-dim_11" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_11.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_12">
+          <video poster="" id="human-dim-dim_12" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_12.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_13">
+          <video poster="" id="human-dim-dim_13" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim13_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_14">
+          <video poster="" id="human-dim-dim_14" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_14.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_15">
+          <video poster="" id="human-dim-dim_15" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_15.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_16">
+          <video poster="" id="human-dim-dim_16" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim16_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_17">
+          <video poster="" id="human-dim-dim_17" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_17.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_18">
+          <video poster="" id="human-dim-dim_18" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_18.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_19">
+          <video poster="" id="human-dim-dim_19" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim19_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_20">
+          <video poster="" id="human-dim-dim_20" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim20_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_21">
+          <video poster="" id="human-dim-dim_21" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim21_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_22">
+          <video poster="" id="human-dim-dim_22" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_22.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_23">
+          <video poster="" id="human-dim-dim_23" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_23.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_24">
+          <video poster="" id="human-dim-dim_24" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim24_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_25">
+          <video poster="" id="human-dim-dim_25" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_25.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_26">
+          <video poster="" id="human-dim-dim_26" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim26_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_27">
+          <video poster="" id="human-dim-dim_27" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/blurred_dim27_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_28">
+          <video poster="" id="human-dim-dim_28" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_28.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_29">
+          <video poster="" id="human-dim-dim_29" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_29.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-human-dim-dim_30">
+          <video poster="" id="human-dim-dim_30" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/human_dim/dim_30.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+<!-- 图1 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Overview of our work.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig1_new.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>Overview of the experimental and analytical pipeline.</h3>
+        <p><b>a</b>, The study utilized a database of 2,180 emotionally evocative videos with rich, pre-existing annotations, including human ratings on discrete emotion categories and continuous affective dimensions, detailed textual descriptions, and corresponding fMRI data from viewers. 
+        <b>b-d</b>, Affective embeddings were derived for four systems—human categorical ratings, human dimensional ratings, LLM, and MLLM—using a triplet odd-one-out behavioral paradigm. Human similarity judgments were simulated based on the cosine similarity of their prior ratings, while models performed the task directly. 
+			<b>e</b>, Example prompts and responses for the LLM and MLLM. <b>f-g</b>, Latent embeddings were learned from over 7.1 million triplet judgments using SPoSE (<b>f</b>), and the resulting representational spaces were compared to each other and to neural data (<b>g</b>).</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+
+	
+
+	
+
+  
+<!-- 图2 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Bridging the behavior-neural gap with affective representations derived from MLLM.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig2_new.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>MLLM representations show superior alignment with neural representations of emotion.</h3>
+        <p><b>a-b</b>, Results of searchlight RSA between model and brain, averaged in subcortical (<b>a</b>) and cortical (<b>b</b>) ROIs (averaged across subjects (N=5)). 
+			Dots represent individual subjects; error bars reflect standard deviation (s.d.); all statistics are two-tailed t-tests across subjects, with false discovery rate (FDR) correction; stars 
+			indicate significant differences between MLLM and the compared model (P < 0.05). <b>c</b>, Whole-cortex maps of searchlight RSA for a representative subject, illustrating the MLLM's superior 
+				performance across distributed emotion-processing networks. All coloured voxels are predicted significantly (P < 0.05, FDR-corrected, two-tailed t-tests). <b>d</b>, Voxel-wise 
+					comparison of the MLLM's performance against the human categorical, dimensional and concatenated ratings model, using searchlight RSA.
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+
+
+
+
+					
+<!-- 图3 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Models develop interpretable, categorical, and blended affective representations.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig3_new.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>Models develop interpretable, categorical, and blended affective components.</h3>
+        <p><b>a</b>, t-SNE visualization of the 2,180 stimuli reveals the global structure of the affective spaces. Points are colored by their highest-rated human emotion category, 
+			showing spontaneous clustering. <b>b</b>, Top-3 nearest-centroid accuracy, quantifying the categorical structure. <b>c-e</b>, Examples of shared (<b>c</b>), unique (<b>d</b>), 
+			and blended (<b>e</b>) affective components, with top-weighted video frames and word clouds (the size of the label is proportional to its correlation coefficient with human ratings). <b>f</b>, Proportion of components 
+			that were interpretable versus uninterpretable. <b>g</b>, Proportion of interpretable components best described as purely categorical, purely dimensional, or a mix of both.	
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+
+
+
+
+				
+<!-- 图4 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Models computationally reconcile the category-dimension debate with a hybrid coding scheme.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig4_new.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>Learned affective spaces are primarily organized by emotion categories.</h3>
+        <p>Correlation heatmaps showing the relationship between the 30 learned affective components (y-axes) and the 48 categories/dimensions from human self-reports 
+			(x-axes; 34 categories and 14 dimensions from <a href="https://www.pnas.org/doi/10.1073/pnas.1702247114" target="_blank" rel="noopener noreferrer" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;">
+      Cowen et al.</a>). Each cell represents the PCC between a learned component and a human-rated category or dimension. 
+			The strong diagonal patterns observed for the LLM (<b>c</b>) and MLLM (<b>d</b>)—mirroring the pattern from human categorical data (<b>a</b>) but not dimensional data (<b>b</b>)—indicate 
+			that the models' affective spaces are predominantly structured along categorical, rather than dimensional, lines.
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+
+					
+<!-- 视频1 -->
+<section class="video-showcase">
+  <div class="video-container">
+    <div class="video-content">
+      <!-- 1. 作为section标题显示在视频上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Illustration of example video stimuli with their dominant dimensions.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸视频容器 -->
+      <div class="video-wrapper">
+        <video controls autoplay muted loop playsinline>
+          <source src="./static/images/Rose_figure.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="video-caption">
+        <h3>Interpretation of the dimensions in the learned affective embeddings.</h3>
+        <p>Illustration of example video stimuli with their dominant dimensions. 
+	Each petal's length corresponds to the expression magnitude of a particular dimension, with unlabeled dimensions reflecting negligible weight contributions for visualization clarity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 视频展示区域专用样式 */
+  .video-showcase {
+    margin: 60px 0;
+  }
+  
+  .video-showcase .video-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .video-showcase .video-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在视频上方 */
+  .video-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0;
+    padding: 0 0 20px 0;
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .video-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .video-showcase .video-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .video-showcase .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+  }
+  
+  .video-showcase .video-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .video-showcase .video-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .video-showcase .video-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .video-showcase .video-content {
+      padding: 20px;
+    }
+    
+    .video-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .video-showcase .video-caption {
+      padding: 15px;
+    }
+    
+    .video-showcase .video-wrapper video {
+      height: auto;
+    }
+  }
+</style>
+
+
+<!-- 视频2 -->
+<section class="video-showcase">
+  <div class="video-container">
+    <div class="video-content">
+      <!-- 1. 作为section标题显示在视频上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Visualizing Attribution in (M)LLM Emotion Recognition: GradCAM Heatmap Analysis.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸视频容器 -->
+      <div class="video-wrapper">
+        <video controls autoplay muted loop playsinline>
+          <source src="./static/images/gradCAM.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="video-caption">
+        <h3>Dimensional interpretation of learned affective embeddings using GradCAM.</h3>
+        <p>Heatmap visualization of affective elicitation in video stimuli. The color gradient indicates regional contributions to affective elicitation, 
+		with red areas representing stronger effects and blue areas weaker effects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 视频展示区域专用样式 */
+  .video-showcase {
+    margin: 60px 0;
+  }
+  
+  .video-showcase .video-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .video-showcase .video-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在视频上方 */
+  .video-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0;
+    padding: 0 0 20px 0;
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .video-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .video-showcase .video-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .video-showcase .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+  }
+  
+  .video-showcase .video-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .video-showcase .video-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .video-showcase .video-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .video-showcase .video-content {
+      padding: 20px;
+    }
+    
+    .video-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .video-showcase .video-caption {
+      padding: 15px;
+    }
+    
+    .video-showcase .video-wrapper video {
+      height: auto;
+    }
+  }
+</style>
+
+
+<!-- 视频3 -->
+<section class="video-showcase">
+  <div class="video-container">
+    <div class="video-content">
+      <!-- 1. 作为section标题显示在视频上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Verifying Causal Interpretability of Affective Embeddings through Dimensional Manipulation.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸视频容器 -->
+      <div class="video-wrapper">
+        <video controls autoplay muted loop playsinline>
+          <source src="./static/images/Emotion_Edit.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="video-caption">
+        <h3>Modifying the affective content of videos through dimensional manipulation of affective embeddings.</h3>
+        <p><b>a</b>, Our manipulation of specific emotional experiences was achieved by reducing the activation values along targeted dimensions in
+		the affective embeddings (SPoSE embeddings). The first row displays frames from the original video. In the second row, red bounding boxes highlight the target 
+		dimension to be manipulated, with its corresponding label and original activation value (normalized to [0,1]) annotated above. The third row presents the activation 
+		heatmap for this dimension. The fourth row shows video frames after decreasing the original activation value to 0.2, demonstrating that precisely the regions highlighted 
+		in the heatmap were modified.  <b>b</b>, The corresponding emotional experience can be elicited in videos by augmenting specific dimension values in the affective embeddings. 
+		The subfigure displays the edited video frames obtained by increasing the value of a specific dimension in the affective embedding to 0.8. Note: Due to space constraints, only the dimension label with the highest PCC is shown in the figure. For complete labels, please refer to the main text.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 视频展示区域专用样式 */
+  .video-showcase {
+    margin: 60px 0;
+  }
+  
+  .video-showcase .video-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .video-showcase .video-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在视频上方 */
+  .video-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0;
+    padding: 0 0 20px 0;
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .video-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .video-showcase .video-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .video-showcase .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+  }
+  
+  .video-showcase .video-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .video-showcase .video-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .video-showcase .video-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .video-showcase .video-content {
+      padding: 20px;
+    }
+    
+    .video-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .video-showcase .video-caption {
+      padding: 15px;
+    }
+    
+    .video-showcase .video-wrapper video {
+      height: auto;
+    }
+  }
+</style>
+
+	
+
+	
+
+	
+
+<!-- 图6 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Convergent evolution and divergent signatures in human and artificial affect.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/fig6.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+        <h3>Convergent and divergent structures of affective spaces across humans and models.</h3>
+		<b>a-d</b>, Affective graphs (left) and community structure (right) for each of the four embedding spaces. In the graphs, nodes are affective components, and edge width is proportional 
+		  to the Pearson correlation between them (r > 0.2). In the community plots, components are grouped into clusters using the Louvain algorithm, with node size reflecting PageRank centrality. 
+		  Isolated nodes are excluded. <b>e</b>, The overlap of affective clusters across all four systems, highlighting both shared and unique high-level structures. <b>f</b>, Dimensionality 
+		  reduction analysis showing the minimum number of principal components required to retain 95%–99% of the predictive accuracy on the behavioral task (gray shaded area). The chance-level accuracy
+		  is marked by the red dashed line.
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+	
+	
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+		  The framework and source code were adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies website</a>. 
+		  Special thanks to the Nerfies team for their awesome open-source project.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
