@@ -987,10 +987,130 @@
 
 
 
-
-
-
 <!-- 图5 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Revealing the link between affective components and visual content.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/figure5.png">
+      </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+  <h3>Visual attribution and generative editing validate the role of affective components.</h3>
+  <p><b>a,</b> Affective decomposition of example videos: each colored petal represents a specific affective component, with its length proportional to the component's weight. <b>b,</b> Grad-CAM heatmaps localize visual regions driving specific component activations (red indicates high contribution). <b>c,</b> Targeted reduction of an affective component by decreasing its activation (component marked in red box, activation normalized to [0,1]). <b>d,</b> Generative elicitation of emotional content by increasing specific component activations.</p>
+</div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 图6 -->
 <section class="image-showcase">
   <div class="image-container">
     <div class="image-content">
@@ -1111,7 +1231,7 @@
 
 
 
-<!-- 图6 -->
+<!-- 图7 -->
 <section class="image-showcase">
   <div class="image-container">
     <div class="image-content">
@@ -1224,35 +1344,143 @@
   }
 </style>
 
-	
 
-	
 
-  
-<!-- 图2 -->
+
+
+<!-- 图supp1 -->
 <section class="image-showcase">
   <div class="image-container">
     <div class="image-content">
       <!-- 1. 作为section标题显示在图像上方 -->
       <h2 class="section-title">
-        <span class="highlight">Bridging the behavior-neural gap with affective representations derived from MLLM.</span> 
+        <span class="highlight">Neural alignment of model-derived affective representations.</span> 
       </h2>
       
       <!-- 2. 大尺寸图片容器 -->
       <div class="image-wrapper">
-        <img src="./static/images/fig2_new.png">
+        <img src="./static/images/supp1.png">
       </div>
       
       <!-- 3. 等宽描述区域 -->
       <div class="image-caption">
-        <h3>MLLM representations show superior alignment with neural representations of emotion.</h3>
-        <p><b>a-b</b>, Results of searchlight RSA between model and brain, averaged in subcortical (<b>a</b>) and cortical (<b>b</b>) ROIs (averaged across subjects (N=5)). 
-			Dots represent individual subjects; error bars reflect standard deviation (s.d.); all statistics are two-tailed t-tests across subjects, with false discovery rate (FDR) correction; stars 
-			indicate significant differences between MLLM and the compared model (P < 0.05). <b>c</b>, Whole-cortex maps of searchlight RSA for a representative subject, illustrating the MLLM's superior 
-				performance across distributed emotion-processing networks. All coloured voxels are predicted significantly (P < 0.05, FDR-corrected, two-tailed t-tests). <b>d</b>, Voxel-wise 
-					comparison of the MLLM's performance against the human categorical, dimensional and concatenated ratings model, using searchlight RSA.
-	</p>
+  <h3>Cortical topography of specific MLLM affective components.</h3>
+  <p>This figure shows the brain activation patterns triggered by three distinct affective components from the MLLM, generated from the weights of the voxel-wise encoding models. Each row displays the results for a single subject (S1–S5), and each column corresponds to a specific component (e.g., <i>nostalgia</i>, <i>sexual desire</i>, <i>anger</i>). Red indicates positive weights, reflecting brain regions where activity is positively associated with the affective component; blue indicates negative weights, reflecting regions with a negative association. For visualization purposes, the original weights have been normalized to the range of -1 to 1, and voxels with absolute values less than 0.01 have been masked out. The consistency in the spatial patterns across all five subjects suggests that these learned affective components capture neurally meaningful and stable components of emotion processing.</p>
+</div>
+    </div>
+  </div>
+</section>
+<style>
+  /* 图片展示区域专用样式 */
+  .image-showcase {
+    margin: 60px 0;
+  }
+  
+  .image-showcase .image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .image-showcase .image-content {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 作为section标题的样式 - 在图像上方 */
+  .image-showcase .section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 40px 0; /* 下方留出足够间距 */
+    padding: 0 0 20px 0; /* 下方内边距 */
+    border-bottom: 3px solid #3498db;
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+  .image-showcase .highlight {
+    font-weight: 800;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .image-showcase .image-wrapper {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-showcase .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-showcase .image-caption {
+    width: 100%;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+  }
+  
+  .image-showcase .image-caption h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .image-showcase .image-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .image-showcase .image-content {
+      padding: 20px;
+    }
+    
+    .image-showcase .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .image-showcase .image-caption {
+      padding: 15px;
+    }
+  }
+</style>
+	
+
+	
+
+<!-- 图supp2 -->
+<section class="image-showcase">
+  <div class="image-container">
+    <div class="image-content">
+      <!-- 1. 作为section标题显示在图像上方 -->
+      <h2 class="section-title">
+        <span class="highlight">Neural alignment of model-derived affective representations.</span> 
+      </h2>
+      
+      <!-- 2. 大尺寸图片容器 -->
+      <div class="image-wrapper">
+        <img src="./static/images/supp2.png">
       </div>
+      
+      <!-- 3. 等宽描述区域 -->
+      <div class="image-caption">
+  <h3>Searchlight RSA comparisons against visual, semantic, and motion control models.</h3>
+  <p><b>a, b,</b> RSA scores (Spearman's rank correlation) averaged for subcortical (<b>a</b>) and cortical (<b>b</b>) ROIs across subjects (n=5). The MLLM-derived affective representation is compared against Visual Object Features (VGG19), Semantic Features (73 concepts), and Motion Energy Features. Error bars reflect standard deviation (s.d.). Asterisks indicate significant differences between MLLM and the comparison models (*, P < 0.05; **, P < 0.01; ***, P < 0.001; n.s., not significant; paired t-tests (two-tailed), FDR corrected). <b>c,</b> Voxel-wise difference maps for a representative subject (S1). Regions where MLLM SPoSE yields higher RSA scores than the visual object and semantic features are shown in yellow-red. The comparison with motion energy features is omitted from the maps as MLLM outperforms them across nearly all voxels. These maps highlight the MLLM's specific advantage in higher-order cortical networks over pure visual features, and its broad advantage over semantic features, particularly in subcortical regions.</p>
+</div>
     </div>
   </div>
 </section>
@@ -1346,767 +1574,7 @@
 </style>
 
 
-
-
-
-					
-<!-- 图3 -->
-<section class="image-showcase">
-  <div class="image-container">
-    <div class="image-content">
-      <!-- 1. 作为section标题显示在图像上方 -->
-      <h2 class="section-title">
-        <span class="highlight">Models develop interpretable, categorical, and blended affective representations.</span> 
-      </h2>
-      
-      <!-- 2. 大尺寸图片容器 -->
-      <div class="image-wrapper">
-        <img src="./static/images/fig3_new.png">
-      </div>
-      
-      <!-- 3. 等宽描述区域 -->
-      <div class="image-caption">
-        <h3>Models develop interpretable, categorical, and blended affective components.</h3>
-        <p><b>a</b>, t-SNE visualization of the 2,180 stimuli reveals the global structure of the affective spaces. Points are colored by their highest-rated human emotion category, 
-			showing spontaneous clustering. <b>b</b>, Top-3 nearest-centroid accuracy, quantifying the categorical structure. <b>c-e</b>, Examples of shared (<b>c</b>), unique (<b>d</b>), 
-			and blended (<b>e</b>) affective components, with top-weighted video frames and word clouds (the size of the label is proportional to its correlation coefficient with human ratings). <b>f</b>, Proportion of components 
-			that were interpretable versus uninterpretable. <b>g</b>, Proportion of interpretable components best described as purely categorical, purely dimensional, or a mix of both.	
-	</p>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  /* 图片展示区域专用样式 */
-  .image-showcase {
-    margin: 60px 0;
-  }
-  
-  .image-showcase .image-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .image-showcase .image-content {
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 作为section标题的样式 - 在图像上方 */
-  .image-showcase .section-title {
-    font-size: 2.2rem;
-    color: #2c3e50;
-    text-align: center;
-    margin: 0 0 40px 0; /* 下方留出足够间距 */
-    padding: 0 0 20px 0; /* 下方内边距 */
-    border-bottom: 3px solid #3498db;
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-  
-  .image-showcase .highlight {
-    font-weight: 800;
-    color: #e74c3c;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .image-showcase .image-wrapper {
-    width: 100%;
-    margin: 0 auto 30px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .image-showcase .image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .image-showcase .image-caption {
-    width: 100%;
-    padding: 25px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 5px solid #3498db;
-  }
-  
-  .image-showcase .image-caption h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-  }
-  
-  .image-showcase .image-caption p {
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-  
-  /* 响应式调整 */
-  @media (max-width: 768px) {
-    .image-showcase .image-content {
-      padding: 20px;
-    }
-    
-    .image-showcase .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    
-    .image-showcase .image-caption {
-      padding: 15px;
-    }
-  }
-</style>
-
-
-
-
-
-				
-<!-- 图4 -->
-<section class="image-showcase">
-  <div class="image-container">
-    <div class="image-content">
-      <!-- 1. 作为section标题显示在图像上方 -->
-      <h2 class="section-title">
-        <span class="highlight">Models computationally reconcile the category-dimension debate with a hybrid coding scheme.</span> 
-      </h2>
-      
-      <!-- 2. 大尺寸图片容器 -->
-      <div class="image-wrapper">
-        <img src="./static/images/fig4_new.png">
-      </div>
-      
-      <!-- 3. 等宽描述区域 -->
-      <div class="image-caption">
-        <h3>Learned affective spaces are primarily organized by emotion categories.</h3>
-        <p>Correlation heatmaps showing the relationship between the 30 learned affective components (y-axes) and the 48 categories/dimensions from human self-reports 
-			(x-axes; 34 categories and 14 dimensions from <a href="https://www.pnas.org/doi/10.1073/pnas.1702247114" target="_blank" rel="noopener noreferrer" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;">
-      Cowen et al.</a>). Each cell represents the PCC between a learned component and a human-rated category or dimension. 
-			The strong diagonal patterns observed for the LLM (<b>c</b>) and MLLM (<b>d</b>)—mirroring the pattern from human categorical data (<b>a</b>) but not dimensional data (<b>b</b>)—indicate 
-			that the models' affective spaces are predominantly structured along categorical, rather than dimensional, lines.
-	</p>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  /* 图片展示区域专用样式 */
-  .image-showcase {
-    margin: 60px 0;
-  }
-  
-  .image-showcase .image-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .image-showcase .image-content {
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 作为section标题的样式 - 在图像上方 */
-  .image-showcase .section-title {
-    font-size: 2.2rem;
-    color: #2c3e50;
-    text-align: center;
-    margin: 0 0 40px 0; /* 下方留出足够间距 */
-    padding: 0 0 20px 0; /* 下方内边距 */
-    border-bottom: 3px solid #3498db;
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-  
-  .image-showcase .highlight {
-    font-weight: 800;
-    color: #e74c3c;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .image-showcase .image-wrapper {
-    width: 100%;
-    margin: 0 auto 30px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .image-showcase .image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .image-showcase .image-caption {
-    width: 100%;
-    padding: 25px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 5px solid #3498db;
-  }
-  
-  .image-showcase .image-caption h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-  }
-  
-  .image-showcase .image-caption p {
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-  
-  /* 响应式调整 */
-  @media (max-width: 768px) {
-    .image-showcase .image-content {
-      padding: 20px;
-    }
-    
-    .image-showcase .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    
-    .image-showcase .image-caption {
-      padding: 15px;
-    }
-  }
-</style>
-
-
-					
-<!-- 视频1 -->
-<section class="video-showcase">
-  <div class="video-container">
-    <div class="video-content">
-      <!-- 1. 作为section标题显示在视频上方 -->
-      <h2 class="section-title">
-        <span class="highlight">Illustration of example video stimuli with their dominant dimensions.</span> 
-      </h2>
-      
-      <!-- 2. 大尺寸视频容器 -->
-      <div class="video-wrapper">
-        <video controls autoplay muted loop playsinline>
-          <source src="./static/images/Rose_figure.mp4" type="video/mp4">
-        </video>
-      </div>
-      
-      <!-- 3. 等宽描述区域 -->
-      <div class="video-caption">
-        <h3>Interpretation of the dimensions in the learned affective embeddings.</h3>
-        <p>Illustration of example video stimuli with their dominant dimensions. 
-	Each petal's length corresponds to the expression magnitude of a particular dimension, with unlabeled dimensions reflecting negligible weight contributions for visualization clarity.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-  /* 视频展示区域专用样式 */
-  .video-showcase {
-    margin: 60px 0;
-  }
-  
-  .video-showcase .video-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .video-showcase .video-content {
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 作为section标题的样式 - 在视频上方 */
-  .video-showcase .section-title {
-    font-size: 2.2rem;
-    color: #2c3e50;
-    text-align: center;
-    margin: 0 0 40px 0;
-    padding: 0 0 20px 0;
-    border-bottom: 3px solid #3498db;
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-  
-  .video-showcase .highlight {
-    font-weight: 800;
-    color: #e74c3c;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .video-showcase .video-wrapper {
-    width: 100%;
-    margin: 0 auto 30px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .video-showcase .video-wrapper video {
-    width: 100%;
-    height: auto;
-    display: block;
-    background: #000;
-  }
-  
-  .video-showcase .video-caption {
-    width: 100%;
-    padding: 25px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 5px solid #3498db;
-  }
-  
-  .video-showcase .video-caption h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-  }
-  
-  .video-showcase .video-caption p {
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-  
-  /* 响应式调整 */
-  @media (max-width: 768px) {
-    .video-showcase .video-content {
-      padding: 20px;
-    }
-    
-    .video-showcase .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    
-    .video-showcase .video-caption {
-      padding: 15px;
-    }
-    
-    .video-showcase .video-wrapper video {
-      height: auto;
-    }
-  }
-</style>
-
-
-<!-- 视频2 -->
-<section class="video-showcase">
-  <div class="video-container">
-    <div class="video-content">
-      <!-- 1. 作为section标题显示在视频上方 -->
-      <h2 class="section-title">
-        <span class="highlight">Visualizing Attribution in (M)LLM Emotion Recognition: GradCAM Heatmap Analysis.</span> 
-      </h2>
-      
-      <!-- 2. 大尺寸视频容器 -->
-      <div class="video-wrapper">
-        <video controls autoplay muted loop playsinline>
-          <source src="./static/images/gradCAM.mp4" type="video/mp4">
-        </video>
-      </div>
-      
-      <!-- 3. 等宽描述区域 -->
-      <div class="video-caption">
-        <h3>Dimensional interpretation of learned affective embeddings using GradCAM.</h3>
-        <p>Heatmap visualization of affective elicitation in video stimuli. The color gradient indicates regional contributions to affective elicitation, 
-		with red areas representing stronger effects and blue areas weaker effects.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-  /* 视频展示区域专用样式 */
-  .video-showcase {
-    margin: 60px 0;
-  }
-  
-  .video-showcase .video-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .video-showcase .video-content {
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 作为section标题的样式 - 在视频上方 */
-  .video-showcase .section-title {
-    font-size: 2.2rem;
-    color: #2c3e50;
-    text-align: center;
-    margin: 0 0 40px 0;
-    padding: 0 0 20px 0;
-    border-bottom: 3px solid #3498db;
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-  
-  .video-showcase .highlight {
-    font-weight: 800;
-    color: #e74c3c;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .video-showcase .video-wrapper {
-    width: 100%;
-    margin: 0 auto 30px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .video-showcase .video-wrapper video {
-    width: 100%;
-    height: auto;
-    display: block;
-    background: #000;
-  }
-  
-  .video-showcase .video-caption {
-    width: 100%;
-    padding: 25px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 5px solid #3498db;
-  }
-  
-  .video-showcase .video-caption h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-  }
-  
-  .video-showcase .video-caption p {
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-  
-  /* 响应式调整 */
-  @media (max-width: 768px) {
-    .video-showcase .video-content {
-      padding: 20px;
-    }
-    
-    .video-showcase .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    
-    .video-showcase .video-caption {
-      padding: 15px;
-    }
-    
-    .video-showcase .video-wrapper video {
-      height: auto;
-    }
-  }
-</style>
-
-
-<!-- 视频3 -->
-<section class="video-showcase">
-  <div class="video-container">
-    <div class="video-content">
-      <!-- 1. 作为section标题显示在视频上方 -->
-      <h2 class="section-title">
-        <span class="highlight">Verifying Causal Interpretability of Affective Embeddings through Dimensional Manipulation.</span> 
-      </h2>
-      
-      <!-- 2. 大尺寸视频容器 -->
-      <div class="video-wrapper">
-        <video controls autoplay muted loop playsinline>
-          <source src="./static/images/Emotion_Edit.mp4" type="video/mp4">
-        </video>
-      </div>
-      
-      <!-- 3. 等宽描述区域 -->
-      <div class="video-caption">
-        <h3>Modifying the affective content of videos through dimensional manipulation of affective embeddings.</h3>
-        <p><b>a</b>, Our manipulation of specific emotional experiences was achieved by reducing the activation values along targeted dimensions in
-		the affective embeddings (SPoSE embeddings). The first row displays frames from the original video. In the second row, red bounding boxes highlight the target 
-		dimension to be manipulated, with its corresponding label and original activation value (normalized to [0,1]) annotated above. The third row presents the activation 
-		heatmap for this dimension. The fourth row shows video frames after decreasing the original activation value to 0.2, demonstrating that precisely the regions highlighted 
-		in the heatmap were modified.  <b>b</b>, The corresponding emotional experience can be elicited in videos by augmenting specific dimension values in the affective embeddings. 
-		The subfigure displays the edited video frames obtained by increasing the value of a specific dimension in the affective embedding to 0.8. Note: Due to space constraints, only the dimension label with the highest PCC is shown in the figure. For complete labels, please refer to the main text.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-  /* 视频展示区域专用样式 */
-  .video-showcase {
-    margin: 60px 0;
-  }
-  
-  .video-showcase .video-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .video-showcase .video-content {
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 作为section标题的样式 - 在视频上方 */
-  .video-showcase .section-title {
-    font-size: 2.2rem;
-    color: #2c3e50;
-    text-align: center;
-    margin: 0 0 40px 0;
-    padding: 0 0 20px 0;
-    border-bottom: 3px solid #3498db;
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-  
-  .video-showcase .highlight {
-    font-weight: 800;
-    color: #e74c3c;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .video-showcase .video-wrapper {
-    width: 100%;
-    margin: 0 auto 30px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .video-showcase .video-wrapper video {
-    width: 100%;
-    height: auto;
-    display: block;
-    background: #000;
-  }
-  
-  .video-showcase .video-caption {
-    width: 100%;
-    padding: 25px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 5px solid #3498db;
-  }
-  
-  .video-showcase .video-caption h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-  }
-  
-  .video-showcase .video-caption p {
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-  
-  /* 响应式调整 */
-  @media (max-width: 768px) {
-    .video-showcase .video-content {
-      padding: 20px;
-    }
-    
-    .video-showcase .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    
-    .video-showcase .video-caption {
-      padding: 15px;
-    }
-    
-    .video-showcase .video-wrapper video {
-      height: auto;
-    }
-  }
-</style>
-
 	
-
-	
-
-	
-
-<!-- 图6 -->
-<section class="image-showcase">
-  <div class="image-container">
-    <div class="image-content">
-      <!-- 1. 作为section标题显示在图像上方 -->
-      <h2 class="section-title">
-        <span class="highlight">Convergent evolution and divergent signatures in human and artificial affect.</span> 
-      </h2>
-      
-      <!-- 2. 大尺寸图片容器 -->
-      <div class="image-wrapper">
-        <img src="./static/images/fig6.png">
-      </div>
-      
-      <!-- 3. 等宽描述区域 -->
-      <div class="image-caption">
-        <h3>Convergent and divergent structures of affective spaces across humans and models.</h3>
-		<b>a-d</b>, Affective graphs (left) and community structure (right) for each of the four embedding spaces. In the graphs, nodes are affective components, and edge width is proportional 
-		  to the Pearson correlation between them (r > 0.2). In the community plots, components are grouped into clusters using the Louvain algorithm, with node size reflecting PageRank centrality. 
-		  Isolated nodes are excluded. <b>e</b>, The overlap of affective clusters across all four systems, highlighting both shared and unique high-level structures. <b>f</b>, Dimensionality 
-		  reduction analysis showing the minimum number of principal components required to retain 95%–99% of the predictive accuracy on the behavioral task (gray shaded area). The chance-level accuracy
-		  is marked by the red dashed line.
-	</p>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  /* 图片展示区域专用样式 */
-  .image-showcase {
-    margin: 60px 0;
-  }
-  
-  .image-showcase .image-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .image-showcase .image-content {
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 作为section标题的样式 - 在图像上方 */
-  .image-showcase .section-title {
-    font-size: 2.2rem;
-    color: #2c3e50;
-    text-align: center;
-    margin: 0 0 40px 0; /* 下方留出足够间距 */
-    padding: 0 0 20px 0; /* 下方内边距 */
-    border-bottom: 3px solid #3498db;
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-  
-  .image-showcase .highlight {
-    font-weight: 800;
-    color: #e74c3c;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .image-showcase .image-wrapper {
-    width: 100%;
-    margin: 0 auto 30px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .image-showcase .image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .image-showcase .image-caption {
-    width: 100%;
-    padding: 25px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 5px solid #3498db;
-  }
-  
-  .image-showcase .image-caption h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-  }
-  
-  .image-showcase .image-caption p {
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-  
-  /* 响应式调整 */
-  @media (max-width: 768px) {
-    .image-showcase .image-content {
-      padding: 20px;
-    }
-    
-    .image-showcase .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    
-    .image-showcase .image-caption {
-      padding: 15px;
-    }
-  }
-</style>
-
-
-
-
-	
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-	
-	
-
-
-
-
-	
-	
-
 
 
 
